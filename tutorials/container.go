@@ -13,15 +13,15 @@ import (
 )
 
 // containerScreen loads a tab panel for containers
-func containerScreen(_ fyne.Window) fyne.CanvasObject {
-	content := container.NewBorder(
-		widget.NewLabelWithStyle("Top", fyne.TextAlignCenter, fyne.TextStyle{}),
-		widget.NewLabelWithStyle("Bottom", fyne.TextAlignCenter, fyne.TextStyle{}),
-		widget.NewLabel("Left"),
-		widget.NewLabel("Right"),
-		widget.NewLabel("Border Container"))
-	return container.NewCenter(content)
-}
+//func containerScreen(_ fyne.Window) fyne.CanvasObject {
+//	content := container.NewBorder(
+//		widget.NewLabelWithStyle("Top", fyne.TextAlignCenter, fyne.TextStyle{}),
+//		widget.NewLabelWithStyle("Bottom", fyne.TextAlignCenter, fyne.TextStyle{}),
+//		widget.NewLabel("Left"),
+//		widget.NewLabel("Right"),
+//		widget.NewLabel("Border Container"))
+//	return container.NewCenter(content)
+//}
 
 func makeAppTabsTab(_ fyne.Window) fyne.CanvasObject {
 	tabs := container.NewAppTabs(

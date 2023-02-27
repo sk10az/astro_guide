@@ -25,7 +25,7 @@ func main() {
 	a.SetIcon(theme.FyneLogo())
 	makeTray(a)
 	logLifecycle(a)
-	w := a.NewWindow("Fyne Demo")
+	w := a.NewWindow("Guide Of Astronomy.")
 	topWindow = w
 
 	w.SetMainMenu(makeMenu(a, w))
@@ -66,7 +66,7 @@ func main() {
 
 	w.SetFixedSize(true)
 
-	w.Resize(fyne.NewSize(640, 640))
+	w.Resize(fyne.NewSize(740, 640))
 	w.ShowAndRun()
 }
 
