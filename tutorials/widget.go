@@ -397,13 +397,13 @@ func stopProgress() {
 }
 
 // widgetScreen shows a panel containing widget demos
-func widgetScreen(_ fyne.Window) fyne.CanvasObject {
-	content := container.NewVBox(
-		widget.NewLabel("Labels"),
-		widget.NewButtonWithIcon("Icons", theme.HomeIcon(), func() {}),
-		widget.NewSlider(0, 1))
-	return container.NewCenter(content)
-}
+//func widgetScreen(_ fyne.Window) fyne.CanvasObject {
+//	content := container.NewVBox(
+//		widget.NewLabel("Labels"),
+//		widget.NewButtonWithIcon("Icons", theme.HomeIcon(), func() {}),
+//		widget.NewSlider(0, 1))
+//	return container.NewCenter(content)
+//}
 
 type contextMenuButton struct {
 	widget.Button

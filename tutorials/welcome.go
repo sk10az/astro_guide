@@ -32,6 +32,7 @@ func welcomeScreen(_ fyne.Window) fyne.CanvasObject {
 		widget.NewLabelWithStyle("Welcome to the Fyne toolkit demo app", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}),
 		logo,
 		container.NewHBox(
+			//makeCardTab(),
 			widget.NewHyperlink("fyne.io", parseURL("https://fyne.io/")),
 			widget.NewLabel("-"),
 			widget.NewHyperlink("documentation", parseURL("https://developer.fyne.io/")),

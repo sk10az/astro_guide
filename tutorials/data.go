@@ -15,11 +15,6 @@ var (
 	// Tutorials defines the metadata for each tutorial
 	Tutorials = map[string]Tutorial{
 		"welcome": {"Welcome", "", welcomeScreen, true},
-		"canvas": {"Canvas",
-			"See the canvas capabilities.",
-			canvasScreen,
-			true,
-		},
 		"animations": {"Animations",
 			"See how to animate components.",
 			makeAnimationScreen,
@@ -77,12 +72,12 @@ var (
 			makeScrollTab,
 			true,
 		},
-		"widgets": {"Widgets",
-			"In this section you can see the features available in the toolkit widget set.\n" +
-				"Expand the tree on the left to browse the individual tutorial elements.",
-			widgetScreen,
-			true,
-		},
+		//"widgets": {"Widgets",
+		//	"In this section you can see the features available in the toolkit widget set.\n" +
+		//		"Expand the tree on the left to browse the individual tutorial elements.",
+		//	widgetScreen,
+		//	true,
+		//},
 		"accordion": {"Accordion",
 			"Expand or collapse content panels.",
 			makeAccordionTab,
@@ -128,13 +123,6 @@ var (
 			makeProgressTab,
 			true,
 		},
-		"collections": {"Collections",
-			"Collection widgets provide an efficient way to present lots of content.\n" +
-				"The List, Table, and Tree provide a cache and re-use mechanism that make it possible to scroll through thousands of elements.\n" +
-				"Use this for large data sets or for collections that can expand as users scroll.",
-			collectionScreen,
-			true,
-		},
 		"list": {"List",
 			"A vertical arrangement of cached elements with the same styling.",
 			makeListTab,
@@ -165,7 +153,7 @@ var (
 			bindingScreen,
 			true,
 		},
-		"advanced": {"Advanced",
+		"settings": {"settings",
 			"Debug and advanced information.",
 			advancedScreen,
 			true,
@@ -174,7 +162,7 @@ var (
 
 	// TutorialIndex  defines how our tutorials should be laid out in the index tree
 	TutorialIndex = map[string][]string{
-		"":            {"welcome", "canvas", "animations", "icons", "widgets", "collections", "containers", "dialogs", "windows", "binding", "advanced"},
+		"":            {"welcome", "icons", "containers", "dialogs", "windows", "binding", "settings"}, // "animations","widgets",
 		"collections": {"list", "table", "tree"},
 		"containers":  {"apptabs", "border", "box", "center", "doctabs", "grid", "scroll", "split"},
 		"widgets":     {"accordion", "button", "card", "entry", "form", "input", "progress", "text", "toolbar"},
