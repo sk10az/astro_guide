@@ -5,7 +5,6 @@ import (
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/canvas"
-	"fyne.io/fyne/v2/cmd/fyne_demo/data"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
 )
@@ -20,12 +19,19 @@ func parseURL(urlStr string) *url.URL {
 }
 
 func welcomeScreen(_ fyne.Window) fyne.CanvasObject {
-	logo := canvas.NewImageFromResource(data.FyneScene)
+	//logo := canvas.NewImageFromResource(data.FyneScene)
+	//logo.FillMode = canvas.ImageFillContain
+	//if fyne.CurrentDevice().IsMobile() {
+	//	logo.SetMinSize(fyne.NewSize(192, 192))
+	//} else {
+	//	logo.SetMinSize(fyne.NewSize(256, 256))
+	//}
+	logo := canvas.NewImageFromFile("resources/img/planets/neptune.png")
 	logo.FillMode = canvas.ImageFillContain
 	if fyne.CurrentDevice().IsMobile() {
 		logo.SetMinSize(fyne.NewSize(192, 192))
 	} else {
-		logo.SetMinSize(fyne.NewSize(256, 256))
+		logo.SetMinSize(fyne.NewSize(350, 350))
 	}
 
 	return container.NewCenter(container.NewVBox(

@@ -65,12 +65,6 @@ var (
 			makeScrollTab,
 			true,
 		},
-		//"widgets": {"Widgets",
-		//	"In this section you can see the features available in the toolkit widget set.\n" +
-		//		"Expand the tree on the left to browse the individual tutorial elements.",
-		//	widgetScreen,
-		//	true,
-		//},
 		"accordion": {"Accordion",
 			"Expand or collapse content panels.",
 			makeAccordionTab,
@@ -131,16 +125,11 @@ var (
 			makeTreeTab,
 			true,
 		},
-		"settings": {"settings",
-			"Debug and advanced information.",
-			advancedScreen,
-			true,
-		},
 	}
 
 	// TutorialIndex  defines how our tutorials should be laid out in the index tree
 	TutorialIndex = map[string][]string{
-		"":            {"welcome", "icons", "settings"}, // "animations","widgets",
+		"":            {"welcome", "icons"}, // "animations","widgets",
 		"collections": {"list", "table", "tree"},
 		"containers":  {"apptabs", "border", "box", "center", "doctabs", "grid", "scroll", "split"},
 		"widgets":     {"accordion", "button", "card", "entry", "form", "input", "progress", "text", "toolbar"},
