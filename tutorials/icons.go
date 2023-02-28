@@ -1,13 +1,12 @@
 package tutorials
 
 import (
-	"image/color"
-
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
+	"image/color"
 )
 
 type iconInfo struct {
@@ -87,8 +86,9 @@ func iconList(icons []iconInfo) []string {
 }
 
 func loadIcons() []iconInfo {
+	img, _ := fyne.LoadResourceFromPath("resources/img/planets/jupiter.png")
 	return []iconInfo{
-		{"CancelIcon", theme.CancelIcon()},
+		{"CancelIcon", img},
 		{"ConfirmIcon", theme.ConfirmIcon()},
 		{"DeleteIcon", theme.DeleteIcon()},
 		{"SearchIcon", theme.SearchIcon()},
