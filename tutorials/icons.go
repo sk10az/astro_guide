@@ -33,6 +33,7 @@ func (b *browser) setIcon(index int) {
 	b.icon.SetResource(b.icons[index].icon)
 }
 
+// TODO:
 // iconScreen loads a panel that shows the various icons available in Fyne
 func iconScreen(_ fyne.Window) fyne.CanvasObject {
 	b := &browser{}

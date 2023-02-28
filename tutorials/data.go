@@ -25,6 +25,11 @@ var (
 			iconScreen,
 			true,
 		},
+		"slider": {"Slider.",
+			"Base information about objects of our solar system.",
+			sliderScreen,
+			true,
+		},
 		"apptabs": {"AppTabs",
 			"A container to help divide up an application into functional areas.",
 			makeAppTabsTab,
@@ -129,7 +134,7 @@ var (
 
 	// TutorialIndex  defines how our tutorials should be laid out in the index tree
 	TutorialIndex = map[string][]string{
-		"":            {"welcome", "icons"}, // "animations","widgets",
+		"":            {"welcome", "icons", "slider"}, // "animations","widgets",
 		"collections": {"list", "table", "tree"},
 		"containers":  {"apptabs", "border", "box", "center", "doctabs", "grid", "scroll", "split"},
 		"widgets":     {"accordion", "button", "card", "entry", "form", "input", "progress", "text", "toolbar"},
