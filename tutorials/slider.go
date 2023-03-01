@@ -69,7 +69,9 @@ func sliderScreen(_ fyne.Window) fyne.CanvasObject {
 	img.SetMinSize(fyne.NewSize(300, 300))
 
 	img1, _ := fyne.LoadResourceFromPath("resources/img/planets/jupiter.png")
-	fmt.Println("IMGGG: %s", reflect.TypeOf(img1))
+
+	fmt.Println(reflect.TypeOf(img1))
+
 	prev := widget.NewButtonWithIcon("", theme.NavigateBackIcon(), func() {
 		b.setIcon(b.current - 1)
 		fmt.Println("prev")
