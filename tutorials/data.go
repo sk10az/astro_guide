@@ -15,7 +15,7 @@ var (
 	// Tutorials defines the metadata for each tutorial
 	Tutorials = map[string]Tutorial{
 		"welcome": {"Главная", "", welcomeScreen, true},
-		"icons": {"Обзор",
+		"planets": {"Планеты",
 			"Какая-то информация об планетах нашей солнечной системы...",
 			iconScreen,
 			true,
@@ -139,7 +139,7 @@ var (
 
 	// TutorialIndex  defines how our tutorials should be laid out in the index tree
 	TutorialIndex = map[string][]string{
-		"":            {"welcome", "icons", "termins", "calc", "constellations"}, // "animations","widgets",
+		"":            {"welcome", "planets", "constellations", "termins", "calc"}, // "animations","widgets",
 		"collections": {"list", "table", "tree"},
 		"containers":  {"apptabs", "border", "box", "center", "doctabs", "grid", "scroll", "split"},
 		"widgets":     {"accordion", "button", "card", "entry", "form", "input", "progress", "text", "toolbar"},

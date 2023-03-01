@@ -2,6 +2,7 @@ package tutorials
 
 import (
 	"fyne.io/fyne/v2"
+	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
@@ -15,7 +16,7 @@ type constellationsIconInfo struct {
 
 type constellationsBrowser struct {
 	current int
-	icons   []iconInfo
+	icons   []constellationsIconInfo
 
 	name *widget.Select
 	icon *widget.Icon
@@ -32,8 +33,37 @@ func (b *constellationsBrowser) setConstellationsIcon(index int) {
 
 // TODO:
 func constellationsScreen(_ fyne.Window) fyne.CanvasObject {
+	b := &constellationsBrowser{}
+	b.icons = loadConstellationsIcons()
 
-	return container.NewBorder(widget.NewLabel("constellations"), nil, nil, nil)
+	prev := widget.NewButtonWithIcon("", theme.NavigateBackIcon(), func() {
+		b.setConstellationsIcon(b.current - 1)
+	})
+
+	next := widget.NewButtonWithIcon("", theme.NavigateNextIcon(), func() {
+		b.setConstellationsIcon(b.current + 1)
+	})
+
+	b.name = widget.NewSelect(iconConstellationsList(b.icons), func(name string) {
+		for i, icon := range b.icons {
+			if icon.name == name {
+				if b.current != i {
+					b.setConstellationsIcon(i)
+				}
+				break
+			}
+		}
+	})
+
+	b.name.SetSelected(b.icons[b.current].name)
+	buttons := container.NewHBox(prev, next)
+	bar := container.NewBorder(nil, nil, buttons, nil, b.name)
+	background := canvas.NewRasterWithPixels(checkerPattern)
+	background.Resize(fyne.NewSize(400, 400))
+	b.icon = widget.NewIcon(b.icons[b.current].icon)
+
+	return container.NewBorder(bar, nil, nil, nil, b.icon) // background перед b.icon
+
 }
 
 func iconConstellationsList(icons []constellationsIconInfo) []string {
