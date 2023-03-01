@@ -66,7 +66,7 @@ func main() {
 
 	w.SetFixedSize(true)
 
-	w.Resize(fyne.NewSize(740, 640))
+	w.Resize(fyne.NewSize(940, 640))
 	w.ShowAndRun()
 }
 
