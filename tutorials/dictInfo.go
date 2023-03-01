@@ -8,7 +8,6 @@ import (
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 	"image/color"
-	"reflect"
 )
 
 type iconInfo struct {
@@ -36,13 +35,15 @@ func (b *browser) setIcon(index int) {
 	b.icon.SetResource(b.icons[index].icon)
 }
 
-func (b *browser) setLabel(index int) {
+func (b *browser) setLabel(index int) string {
 	if index < 0 || index > len(b.desks)-1 {
-		return
+		return ""
 	}
 	b.current = index
 	description := b.desks[index].description
-	fmt.Println(description)
+	fmt.Println("123456789", description)
+
+	return description
 }
 
 // TODO:
@@ -51,13 +52,26 @@ func iconScreen(_ fyne.Window) fyne.CanvasObject {
 	b.icons = loadIcons()
 	b.desks = loadIcons()
 
+	var stateI int
+	a11 := widget.NewLabel(b.desks[stateI].description)
+
 	prev := widget.NewButtonWithIcon("", theme.NavigateBackIcon(), func() {
 		b.setIcon(b.current - 1)
 		b.setLabel(b.current)
+
+		stateI = stateI - 1
+		canvas.Refresh(a11)
+
 	})
+
 	next := widget.NewButtonWithIcon("", theme.NavigateNextIcon(), func() {
 		b.setIcon(b.current + 1)
 		b.setLabel(b.current)
+
+		stateI = stateI + 1
+		fmt.Println(stateI)
+		canvas.Refresh(a11)
+
 	})
 
 	b.name = widget.NewSelect(iconList(b.icons), func(name string) {
@@ -71,22 +85,6 @@ func iconScreen(_ fyne.Window) fyne.CanvasObject {
 		}
 	})
 
-	//b.desk = widget.NewSelect(textList(b.desks), func(desk string) {
-	//	for i, desc := range b.desks {
-	//		if desc.description == desk {
-	//			if b.current != i {
-	//				b.setLabel(i)
-	//			}
-	//			break
-	//		}
-	//	}
-	//})
-
-	fmt.Println(b.desks[b.current].description)
-	fmt.Println("________________________--")
-	fmt.Println(reflect.TypeOf(b.desks[b.current].description))
-	fmt.Println("________________________--")
-
 	b.name.SetSelected(b.icons[b.current].name)
 	//b.desk.SetSelected(b.icons[b.current].description)
 	buttons := container.NewHBox(prev, next)
@@ -96,7 +94,10 @@ func iconScreen(_ fyne.Window) fyne.CanvasObject {
 	background.Resize(fyne.NewSize(400, 400))
 	b.icon = widget.NewIcon(b.icons[b.current].icon)
 
-	return container.NewBorder(bar, nil, nil, widget.NewLabel(b.desks[b.current].description), b.icon, background) // background перед b.icon
+	canvas.Refresh(a11)
+
+	return container.NewBorder(bar, nil, nil, container.NewGridWithColumns(2, a11, b.icon)) // background перед b.icon
+	//widget.NewLabel(b.desks[stateI].description)
 }
 
 func iconList(icons []iconInfo) []string {
@@ -128,9 +129,9 @@ func loadIcons() []iconInfo {
 	return []iconInfo{
 		{"Mercury", mercury, "Наименьшая планета Солнечной системы и самая близкая к Солнцу.\n " +
 			"Названа в честь древнеримского бога торговли - быстрого Меркурия,\n " +
-			"поскольку она движется по небу быстрее других планет. " +
-			"Её период обращения вокруг Солнца составляет всего 87,97 земных " +
-			"суток - самый короткий среди всех планет Солнечной системы."},
+			"поскольку она движется по небу быстрее других планет.\n " +
+			"Её период обращения вокруг Солнца составляет всего 87,97 земных\n " +
+			"суток - самый короткий среди всех планет Солнечной системы.\n"},
 		{"Venus", venus, "venus"},
 		{"Earth", earth, "earth"},
 		{"Mars", mars, "mars"},
