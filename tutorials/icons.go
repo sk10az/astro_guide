@@ -20,9 +20,9 @@ type iconInfo struct {
 type browser struct {
 	current int
 	icons   []iconInfo
-	//desks   []iconInfo
+	desks   []iconInfo
 
-	desk *widget.Label
+	desk *widget.Select
 	name *widget.Select
 	icon *widget.Icon
 }
@@ -37,27 +37,35 @@ func (b *browser) setIcon(index int) {
 	b.icon.SetResource(b.icons[index].icon)
 }
 
+func (b *browser) setLabel(index int) {
+	if index < 0 || index > len(b.desks)-1 {
+		return
+	}
+	b.current = index
+	b.desk.SetSelected(b.desks[index].description)
+}
+
 // TODO:
 // iconScreen loads a panel that shows the various icons available in Fyne
 func iconScreen(_ fyne.Window) fyne.CanvasObject {
 	b := &browser{}
 	b.icons = loadIcons()
 	//
-	var lText string
-	switch b.current {
-	case 0:
-		lText = "desc mercury"
-	case 1:
-		lText = "desc venus"
-	case 2:
-		lText = "desc earth"
-	case 3:
-		lText = "desc mars"
-	case 4:
-		lText = "desc jupiter"
-	case 5:
-		lText = "desc saturn"
-	}
+	//var lText string
+	//switch b.current {
+	//case 0:
+	//	lText = "desc mercury"
+	//case 1:
+	//	lText = "desc venus"
+	//case 2:
+	//	lText = "desc earth"
+	//case 3:
+	//	lText = "desc mars"
+	//case 4:
+	//	lText = "desc jupiter"
+	//case 5:
+	//	lText = "desc saturn"
+	//}
 
 	prev := widget.NewButtonWithIcon("", theme.NavigateBackIcon(), func() {
 		canvas.Refresh(b.desk)
@@ -78,8 +86,19 @@ func iconScreen(_ fyne.Window) fyne.CanvasObject {
 			}
 		}
 	})
-	b.name.SetSelected(b.icons[b.current].name)
 
+	b.desk = widget.NewSelect(textList(b.desks), func(desk string) {
+		for i, desc := range b.desks {
+			if desc.description == desk {
+				if b.current != i {
+					b.setLabel(i)
+				}
+				break
+			}
+		}
+	})
+
+	b.name.SetSelected(b.icons[b.current].name)
 	//b.desk.SetText(b.icons[b.current].description)
 	buttons := container.NewHBox(prev, next)
 	bar := container.NewBorder(nil, nil, buttons, nil, b.name)
@@ -88,8 +107,8 @@ func iconScreen(_ fyne.Window) fyne.CanvasObject {
 
 	// TODO: эт штука не работает, потому что она nil
 	//b.desk = widget.NewLabel(b.desks[b.current].description)
-
-	b.desk = widget.NewLabel(lText)
+	//b.desk.SetSelected(b.desks[b.current].description)
+	//b.desk = widget.NewSelect(lText)
 	fmt.Println("____________")
 	fmt.Println(reflect.TypeOf(b.desk))
 	fmt.Println(b.desk)
@@ -100,17 +119,24 @@ func iconScreen(_ fyne.Window) fyne.CanvasObject {
 	background.SetMinSize(fyne.NewSize(400, 400))
 	b.icon = widget.NewIcon(b.icons[b.current].icon)
 
-	return container.NewBorder(bar, nil, nil, widget.NewLabel("12"), background, b.icon, b.desk)
+	return container.NewBorder(bar, nil, nil, b.desk, background, b.icon)
 }
 
 func iconList(icons []iconInfo) []string {
 	ret := make([]string, len(icons))
-
 	for i, icon := range icons {
 		ret[i] = icon.name
-	}
 
+	}
 	return ret
+}
+
+func textList(desks []iconInfo) []string {
+	retDesk := make([]string, len(desks))
+	for i, desk := range desks {
+		retDesk[i] = desk.description
+	}
+	return retDesk
 }
 
 func loadIcons() []iconInfo {
@@ -119,9 +145,9 @@ func loadIcons() []iconInfo {
 	earth, _ := fyne.LoadResourceFromPath("resources/img/planets/earth.png")
 	mars, _ := fyne.LoadResourceFromPath("resources/img/planets/mars.png")
 	jupiter, _ := fyne.LoadResourceFromPath("resources/img/planets/jupiter.png")
-	saturn, _ := fyne.LoadResourceFromPath("resources/img/planets/jupiter.png")
-	uranium, _ := fyne.LoadResourceFromPath("resources/img/planets/jupiter.png")
-	neptune, _ := fyne.LoadResourceFromPath("resources/img/planets/jupiter.png")
+	saturn, _ := fyne.LoadResourceFromPath("resources/img/planets/saturn.png")
+	uranium, _ := fyne.LoadResourceFromPath("resources/img/planets/uranium.png")
+	neptune, _ := fyne.LoadResourceFromPath("resources/img/planets/neptune.png")
 	return []iconInfo{
 		{"Mercury", mercury, "mercury"},
 		{"Venus", venus, "venus"},
