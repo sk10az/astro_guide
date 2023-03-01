@@ -50,22 +50,7 @@ func (b *browser) setLabel(index int) {
 func iconScreen(_ fyne.Window) fyne.CanvasObject {
 	b := &browser{}
 	b.icons = loadIcons()
-	//
-	//var lText string
-	//switch b.current {
-	//case 0:
-	//	lText = "desc mercury"
-	//case 1:
-	//	lText = "desc venus"
-	//case 2:
-	//	lText = "desc earth"
-	//case 3:
-	//	lText = "desc mars"
-	//case 4:
-	//	lText = "desc jupiter"
-	//case 5:
-	//	lText = "desc saturn"
-	//}
+	b.desks = loadIcons()
 
 	prev := widget.NewButtonWithIcon("", theme.NavigateBackIcon(), func() {
 		canvas.Refresh(b.desk)
@@ -99,7 +84,7 @@ func iconScreen(_ fyne.Window) fyne.CanvasObject {
 	})
 
 	b.name.SetSelected(b.icons[b.current].name)
-	//b.desk.SetText(b.icons[b.current].description)
+	b.desk.SetSelected(b.icons[b.current].description)
 	buttons := container.NewHBox(prev, next)
 	bar := container.NewBorder(nil, nil, buttons, nil, b.name)
 
@@ -149,7 +134,11 @@ func loadIcons() []iconInfo {
 	uranium, _ := fyne.LoadResourceFromPath("resources/img/planets/uranium.png")
 	neptune, _ := fyne.LoadResourceFromPath("resources/img/planets/neptune.png")
 	return []iconInfo{
-		{"Mercury", mercury, "mercury"},
+		{"Mercury", mercury, "Наименьшая планета Солнечной системы и самая близкая к Солнцу. " +
+			"Названа в честь древнеримского бога торговли - быстрого Меркурия, " +
+			"поскольку она движется по небу быстрее других планет. " +
+			"Её период обращения вокруг Солнца составляет всего 87,97 земных " +
+			"суток - самый короткий среди всех планет Солнечной системы."},
 		{"Venus", venus, "venus"},
 		{"Earth", earth, "earth"},
 		{"Mars", mars, "mars"},
