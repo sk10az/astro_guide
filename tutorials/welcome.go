@@ -26,7 +26,7 @@ func welcomeScreen(_ fyne.Window) fyne.CanvasObject {
 	//} else {
 	//	logo.SetMinSize(fyne.NewSize(256, 256))
 	//}
-	logo := canvas.NewImageFromFile("resources/img/planets/earth.png")
+	logo := canvas.NewImageFromFile("resources/img/planets/earth_logo.png")
 	logo.FillMode = canvas.ImageFillContain
 	if fyne.CurrentDevice().IsMobile() {
 		logo.SetMinSize(fyne.NewSize(192, 192))

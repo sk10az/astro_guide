@@ -75,16 +75,16 @@ func iconConstellationsList(icons []constellationsIconInfo) []string {
 }
 
 func loadConstellationsIcons() []constellationsIconInfo {
-	mercury, _ := fyne.LoadResourceFromPath("resources/img/planets/mercury.png")
-	venus, _ := fyne.LoadResourceFromPath("resources/img/planets/venus.png")
-	earth, _ := fyne.LoadResourceFromPath("resources/img/planets/earth.png")
-	mars, _ := fyne.LoadResourceFromPath("resources/img/planets/mars.png")
-	jupiter, _ := fyne.LoadResourceFromPath("resources/img/planets/jupiter.png")
-	saturn, _ := fyne.LoadResourceFromPath("resources/img/planets/saturn.png")
-	uranium, _ := fyne.LoadResourceFromPath("resources/img/planets/uranium.png")
+	bigbear, _ := fyne.LoadResourceFromPath("resources/img/constellations/bigbear.png")
+	venus, _ := fyne.LoadResourceFromPath("resources/img/constellations/cefey.png")
+	earth, _ := fyne.LoadResourceFromPath("resources/img/constellations/centaurus.png")
+	mars, _ := fyne.LoadResourceFromPath("resources/img/constellations/deva.png")
+	jupiter, _ := fyne.LoadResourceFromPath("resources/img/constellations/hercules.png")
+	saturn, _ := fyne.LoadResourceFromPath("resources/img/constellations/hydra.png")
+	uranium, _ := fyne.LoadResourceFromPath("resources/img/constellations/orion.png")
 	neptune, _ := fyne.LoadResourceFromPath("resources/img/planets/neptune.png")
 	return []constellationsIconInfo{
-		{"Mercury", mercury},
+		{"Большая медведица", bigbear},
 		{"Venus", venus},
 		{"Earth", earth},
 		{"Mars", mars},

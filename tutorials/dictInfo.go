@@ -1,7 +1,6 @@
 package tutorials
 
 import (
-	"fmt"
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
@@ -41,37 +40,24 @@ func (b *browser) setLabel(index int) string {
 	}
 	b.current = index
 	description := b.desks[index].description
-	fmt.Println("123456789", description)
-
+	//fmt.Println("description: ", description)
 	return description
 }
 
-// TODO:
+// TODO: какая же хрень
 func iconScreen(_ fyne.Window) fyne.CanvasObject {
 	b := &browser{}
 	b.icons = loadIcons()
 	b.desks = loadIcons()
 
-	var stateI int
-	a11 := widget.NewLabel(b.desks[stateI].description)
-
 	prev := widget.NewButtonWithIcon("", theme.NavigateBackIcon(), func() {
 		b.setIcon(b.current - 1)
 		b.setLabel(b.current)
-
-		stateI = stateI - 1
-		canvas.Refresh(a11)
-
 	})
 
 	next := widget.NewButtonWithIcon("", theme.NavigateNextIcon(), func() {
 		b.setIcon(b.current + 1)
 		b.setLabel(b.current)
-
-		stateI = stateI + 1
-		fmt.Println(stateI)
-		canvas.Refresh(a11)
-
 	})
 
 	b.name = widget.NewSelect(iconList(b.icons), func(name string) {
@@ -86,7 +72,6 @@ func iconScreen(_ fyne.Window) fyne.CanvasObject {
 	})
 
 	b.name.SetSelected(b.icons[b.current].name)
-	//b.desk.SetSelected(b.icons[b.current].description)
 	buttons := container.NewHBox(prev, next)
 	bar := container.NewBorder(nil, nil, buttons, nil, b.name)
 
@@ -94,10 +79,7 @@ func iconScreen(_ fyne.Window) fyne.CanvasObject {
 	background.Resize(fyne.NewSize(400, 400))
 	b.icon = widget.NewIcon(b.icons[b.current].icon)
 
-	canvas.Refresh(a11)
-
-	return container.NewBorder(bar, nil, nil, container.NewGridWithColumns(2, a11, b.icon)) // background перед b.icon
-	//widget.NewLabel(b.desks[stateI].description)
+	return container.NewBorder(bar, nil, nil, nil, b.icon) // background перед b.icon // container.NewGridWithColumns(2, widget.NewLabel(b.desks[b.current].description),
 }
 
 func iconList(icons []iconInfo) []string {

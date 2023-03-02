@@ -35,6 +35,11 @@ var (
 			calcScreen,
 			true,
 		},
+		"randomFacts": {"Факты",
+			"Нажмите на кнопку, чтобы получать случайный, но интересный факт об космосе.",
+			randomFactScreen,
+			true,
+		},
 		"apptabs": {"AppTabs",
 			"A container to help divide up an application into functional areas.",
 			makeAppTabsTab,
@@ -139,7 +144,7 @@ var (
 
 	// TutorialIndex  defines how our tutorials should be laid out in the index tree
 	TutorialIndex = map[string][]string{
-		"":            {"welcome", "planets", "constellations", "termins", "calc"}, // "animations","widgets",
+		"":            {"welcome", "planets", "constellations", "termins", "calc", "randomFacts"}, // "animations","widgets",
 		"collections": {"list", "table", "tree"},
 		"containers":  {"apptabs", "border", "box", "center", "doctabs", "grid", "scroll", "split"},
 		"widgets":     {"accordion", "button", "card", "entry", "form", "input", "progress", "text", "toolbar"},
