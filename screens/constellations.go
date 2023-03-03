@@ -2,7 +2,6 @@ package screens
 
 import (
 	"fyne.io/fyne/v2"
-	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
@@ -10,16 +9,17 @@ import (
 )
 
 type constellationsIconInfo struct {
-	name string
-	icon fyne.Resource
+	name        string
+	icon        fyne.Resource
+	description string // добавлено поле для описания
 }
 
 type constellationsBrowser struct {
-	current int
-	icons   []constellationsIconInfo
-
-	name *widget.Select
-	icon *widget.Icon
+	current     int
+	icons       []constellationsIconInfo
+	name        *widget.Select
+	icon        *widget.Icon
+	description *widget.Label // добавили поле для описания
 }
 
 func (b *constellationsBrowser) setConstellationsIcon(index int) {
@@ -29,6 +29,12 @@ func (b *constellationsBrowser) setConstellationsIcon(index int) {
 	b.current = index
 	b.name.SetSelected(b.icons[index].name)
 	b.icon.SetResource(b.icons[index].icon)
+	b.setDescription(b.icons[index].description) // обновляем описание
+}
+
+func (b *constellationsBrowser) setDescription(description string) {
+	b.description.SetText(description)
+	b.description.Refresh()
 }
 
 // TODO:
@@ -58,12 +64,18 @@ func constellationsScreen(_ fyne.Window) fyne.CanvasObject {
 	b.name.SetSelected(b.icons[b.current].name)
 	buttons := container.NewHBox(prev, next)
 	bar := container.NewBorder(nil, nil, buttons, nil, b.name)
-	background := canvas.NewRasterWithPixels(checkerPattern)
-	background.Resize(fyne.NewSize(400, 400))
+
+	b.description = widget.NewLabelWithStyle("", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}) // создаем Label для описания
 	b.icon = widget.NewIcon(b.icons[b.current].icon)
 
-	return container.NewBorder(bar, nil, nil, nil, b.icon) // background перед b.icon
+	content := container.NewGridWithColumns(2,
+		b.icon,
+		b.description, // добавляем Label вместо названия
+	)
 
+	b.setDescription(b.icons[b.current].description) // устанавливаем начальное описание
+
+	return container.NewBorder(bar, nil, nil, nil, content)
 }
 
 func iconConstellationsList(icons []constellationsIconInfo) []string {
@@ -79,17 +91,11 @@ func loadConstellationsIcons() []constellationsIconInfo {
 	venus, _ := fyne.LoadResourceFromPath("resources/img/constellations/cefey.png")
 	earth, _ := fyne.LoadResourceFromPath("resources/img/constellations/centaurus.png")
 	mars, _ := fyne.LoadResourceFromPath("resources/img/constellations/deva.png")
-	jupiter, _ := fyne.LoadResourceFromPath("resources/img/constellations/hercules.png")
-	saturn, _ := fyne.LoadResourceFromPath("resources/img/constellations/hydra.png")
-	uranium, _ := fyne.LoadResourceFromPath("resources/img/constellations/orion.png")
 	return []constellationsIconInfo{
-		{"Большая медведица", bigbear},
-		{"Цефей", venus},
-		{"Кентавр", earth},
-		{"Дева", mars},
-		{"Геркулес", jupiter},
-		{"Гидра", saturn},
-		{"Орион", uranium},
+		{name: "Большая медведица", icon: bigbear, description: "Большая медведица - созвездие северного полушария зимнего неба."},
+		{name: "Венера", icon: venus, description: "Венера - вторая планета от Солнца."},
+		{name: "Центавр", icon: earth, description: "Центавр - созвездие южного полушария неба."},
+		{name: "Марс", icon: mars, description: "Марс - четвёртая планета от Солнца."},
 	}
 }
 
