@@ -1,4 +1,4 @@
-package tutorials
+package screens
 
 import (
 	"net/url"
@@ -19,13 +19,6 @@ func parseURL(urlStr string) *url.URL {
 }
 
 func welcomeScreen(_ fyne.Window) fyne.CanvasObject {
-	//logo := canvas.NewImageFromResource(data.FyneScene)
-	//logo.FillMode = canvas.ImageFillContain
-	//if fyne.CurrentDevice().IsMobile() {
-	//	logo.SetMinSize(fyne.NewSize(192, 192))
-	//} else {
-	//	logo.SetMinSize(fyne.NewSize(256, 256))
-	//}
 	logo := canvas.NewImageFromFile("resources/img/planets/earth_logo.png")
 	logo.FillMode = canvas.ImageFillContain
 	if fyne.CurrentDevice().IsMobile() {

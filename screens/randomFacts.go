@@ -1,4 +1,4 @@
-package tutorials
+package screens
 
 import (
 	"fyne.io/fyne/v2"

@@ -1,4 +1,4 @@
-package tutorials
+package screens
 
 import (
 	"fmt"
@@ -9,7 +9,6 @@ import (
 	"strconv"
 )
 
-// TODO:
 func calcScreen(_ fyne.Window) fyne.CanvasObject {
 	var_M := widget.NewEntry()
 	var_m := widget.NewEntry()
@@ -53,7 +52,7 @@ func calcScreen(_ fyne.Window) fyne.CanvasObject {
 		},
 	}
 
-	titleOfUniversalGravitation := widget.NewLabel("Формула свободного падения: F=(MmG)/r^2")
+	titleOfUniversalGravitation := widget.NewLabel("Формула всемирного тяготения: F=(MmG)/r^2")
 	deskOfUniversalGravitation := widget.NewLabel("   Для подсчета используется формула: F = G * (m1 * m2) / R^2,\n" +
 		"где m — масса, R — расстояние между телами, G — гравитационная постоянная, \n" +
 		"значение которой было определено экспериментально. Эта постоянная G очень \n" +

@@ -1,4 +1,4 @@
-package tutorials
+package screens
 
 import (
 	"image/color"

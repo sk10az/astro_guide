@@ -13,7 +13,7 @@ import (
 	"fyne.io/fyne/v2/driver/desktop"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
-	"github.com/sk10az/astro_guide/tutorials"
+	"github.com/sk10az/astro_guide/screens"
 )
 
 const preferenceCurrentTutorial = "currentTutorial"
@@ -35,7 +35,7 @@ func main() {
 	title := widget.NewLabel("Component name")
 	intro := widget.NewLabel("An introduction would probably go\nhere, as well as a")
 	intro.Wrapping = fyne.TextWrapWord
-	setTutorial := func(t tutorials.Tutorial) {
+	setTutorial := func(t screens.Tutorial) {
 		if fyne.CurrentDevice().IsMobile() {
 			child := a.NewWindow(t.Title)
 			topWindow = child
@@ -190,19 +190,19 @@ func makeTray(a fyne.App) {
 	}
 }
 
-func unsupportedTutorial(t tutorials.Tutorial) bool {
+func unsupportedTutorial(t screens.Tutorial) bool {
 	return !t.SupportWeb && fyne.CurrentDevice().IsBrowser()
 }
 
-func makeNav(setTutorial func(tutorial tutorials.Tutorial), loadPrevious bool) fyne.CanvasObject {
+func makeNav(setTutorial func(tutorial screens.Tutorial), loadPrevious bool) fyne.CanvasObject {
 	a := fyne.CurrentApp()
 
 	tree := &widget.Tree{
 		ChildUIDs: func(uid string) []string {
-			return tutorials.TutorialIndex[uid]
+			return screens.TutorialIndex[uid]
 		},
 		IsBranch: func(uid string) bool {
-			children, ok := tutorials.TutorialIndex[uid]
+			children, ok := screens.TutorialIndex[uid]
 
 			return ok && len(children) > 0
 		},
@@ -210,7 +210,7 @@ func makeNav(setTutorial func(tutorial tutorials.Tutorial), loadPrevious bool) f
 			return widget.NewLabel("Collection Widgets")
 		},
 		UpdateNode: func(uid string, branch bool, obj fyne.CanvasObject) {
-			t, ok := tutorials.Tutorials[uid]
+			t, ok := screens.Tutorials[uid]
 			if !ok {
 				fyne.LogError("Missing tutorial panel: "+uid, nil)
 				return
@@ -223,7 +223,7 @@ func makeNav(setTutorial func(tutorial tutorials.Tutorial), loadPrevious bool) f
 			}
 		},
 		OnSelected: func(uid string) {
-			if t, ok := tutorials.Tutorials[uid]; ok {
+			if t, ok := screens.Tutorials[uid]; ok {
 				if unsupportedTutorial(t) {
 					return
 				}

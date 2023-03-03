@@ -1,4 +1,4 @@
-package tutorials
+package screens
 
 import (
 	"fyne.io/fyne/v2"
@@ -82,16 +82,14 @@ func loadConstellationsIcons() []constellationsIconInfo {
 	jupiter, _ := fyne.LoadResourceFromPath("resources/img/constellations/hercules.png")
 	saturn, _ := fyne.LoadResourceFromPath("resources/img/constellations/hydra.png")
 	uranium, _ := fyne.LoadResourceFromPath("resources/img/constellations/orion.png")
-	neptune, _ := fyne.LoadResourceFromPath("resources/img/planets/neptune.png")
 	return []constellationsIconInfo{
 		{"Большая медведица", bigbear},
-		{"Venus", venus},
-		{"Earth", earth},
-		{"Mars", mars},
-		{"Jupiter", jupiter},
-		{"Saturn", saturn},
-		{"Uranium", uranium},
-		{"Neptune", neptune},
+		{"Цефей", venus},
+		{"Кентавр", earth},
+		{"Дева", mars},
+		{"Геркулес", jupiter},
+		{"Гидра", saturn},
+		{"Орион", uranium},
 	}
 }
 

@@ -1,4 +1,4 @@
-package tutorials
+package screens
 
 import (
 	"fyne.io/fyne/v2"
@@ -142,7 +142,7 @@ var (
 		},
 	}
 
-	// TutorialIndex  defines how our tutorials should be laid out in the index tree
+	// TutorialIndex  defines how our screens should be laid out in the index tree
 	TutorialIndex = map[string][]string{
 		"":            {"welcome", "planets", "constellations", "termins", "calc", "randomFacts"}, // "animations","widgets",
 		"collections": {"list", "table", "tree"},
