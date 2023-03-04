@@ -1,6 +1,13 @@
 FROM golang:latest
 
+RUN go version
+ENV GOPATH=/
+
 COPY ./ ./
-RUN make deps
+
+RUN go mod download
+RUN #make deps
+RUN go install github.com/fyne-io/fyne-cross@latest
+RUN go get github.com/fyne-io/fyne-cross
 RUN make build
-CMD ["./main"]
+CMD ["./astro_guide"]
