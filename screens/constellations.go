@@ -69,8 +69,8 @@ func constellationsScreen(_ fyne.Window) fyne.CanvasObject {
 	b.icon = widget.NewIcon(b.icons[b.current].icon)
 
 	content := container.NewGridWithColumns(2,
-		b.icon,
 		b.description, // добавляем Label вместо названия
+		b.icon,
 	)
 
 	b.setDescription(b.icons[b.current].description) // устанавливаем начальное описание

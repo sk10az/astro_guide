@@ -64,9 +64,8 @@ func main() {
 		w.SetContent(split)
 	}
 
-	w.SetFixedSize(true)
-
 	w.Resize(fyne.NewSize(940, 640))
+	w.SetFixedSize(true)
 	w.ShowAndRun()
 }
 
@@ -112,6 +111,7 @@ func makeMenu(a fyne.App, w fyne.Window) *fyne.MainMenu {
 		w := a.NewWindow("Fyne Settings")
 		w.SetContent(settings.NewSettings().LoadAppearanceScreen(w))
 		w.Resize(fyne.NewSize(480, 480))
+		w.SetFixedSize(true)
 		w.Show()
 	}
 	settingsItem := fyne.NewMenuItem("Settings", openSettings)
