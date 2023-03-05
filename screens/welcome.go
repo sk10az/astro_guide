@@ -5,7 +5,8 @@ import (
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
-
+	"github.com/sk10az/astro_guide/resources"
+	"net/http"
 	"net/url"
 )
 
@@ -19,8 +20,14 @@ func parseURL(urlStr string) *url.URL {
 }
 
 func welcomeScreen(_ fyne.Window) fyne.CanvasObject {
-	logo := canvas.NewImageFromFile("resources/img/planets/earth_logo.png")
+	//logo := canvas.NewImageFromFile("resources/img/planets/earth_logo.png")
+	//logo.FillMode = canvas.ImageFillContain
+	http.Handle("/resources/", http.StripPrefix("/resources/", http.FileServer(http.FS(resources.Content))))
+
+	var res = fyne.NewStaticResource("earth_logo.png", resources.EarthLogo)
+	logo := canvas.NewImageFromResource(res)
 	logo.FillMode = canvas.ImageFillContain
+	//img := canvas.NewImageFromResource(ResourceResourcesImgPlanetsEarthlogoPng)
 
 	if fyne.CurrentDevice().IsMobile() {
 		logo.SetMinSize(fyne.NewSize(192, 192))
