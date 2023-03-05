@@ -5,6 +5,7 @@ import (
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
+
 	"net/url"
 )
 
@@ -20,6 +21,7 @@ func parseURL(urlStr string) *url.URL {
 func welcomeScreen(_ fyne.Window) fyne.CanvasObject {
 	logo := canvas.NewImageFromFile("resources/img/planets/earth_logo.png")
 	logo.FillMode = canvas.ImageFillContain
+
 	if fyne.CurrentDevice().IsMobile() {
 		logo.SetMinSize(fyne.NewSize(192, 192))
 	} else {
