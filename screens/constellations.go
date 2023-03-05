@@ -65,7 +65,7 @@ func constellationsScreen(_ fyne.Window) fyne.CanvasObject {
 	buttons := container.NewHBox(prev, next)
 	bar := container.NewBorder(nil, nil, buttons, nil, container.NewScroll(b.name))
 
-	b.description = widget.NewLabelWithStyle("", fyne.TextAlignLeading, fyne.TextStyle{Bold: false}) // создаем Label для описания
+	b.description = widget.NewLabelWithStyle("", fyne.TextAlignLeading, fyne.TextStyle{Bold: true}) // создаем Label для описания
 
 	b.icon = widget.NewIcon(b.icons[b.current].icon)
 	b.setDescription(b.icons[b.current].description) // устанавливаем начальное описание
