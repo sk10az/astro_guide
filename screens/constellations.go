@@ -87,15 +87,35 @@ func iconConstellationsList(icons []constellationsIconInfo) []string {
 }
 
 func loadConstellationsIcons() []constellationsIconInfo {
-	bigbear, _ := fyne.LoadResourceFromPath("resources/img/constellations/bigbear.png")
-	venus, _ := fyne.LoadResourceFromPath("resources/img/constellations/cefey.png")
-	earth, _ := fyne.LoadResourceFromPath("resources/img/constellations/centaurus.png")
-	mars, _ := fyne.LoadResourceFromPath("resources/img/constellations/deva.png")
+	андромеда, _ := fyne.LoadResourceFromPath("resources/img/constellations/1.jpg")
+	большаяМедведица, _ := fyne.LoadResourceFromPath("resources/img/constellations/2.jpg")
+	большойПёс, _ := fyne.LoadResourceFromPath("resources/img/constellations/3.jpg")
+	близнецы, _ := fyne.LoadResourceFromPath("resources/img/constellations/4.jpg")
+	чаша, _ := fyne.LoadResourceFromPath("resources/img/constellations/5.jpg")
+	часы, _ := fyne.LoadResourceFromPath("resources/img/constellations/6.jpg")
+	дельфин, _ := fyne.LoadResourceFromPath("resources/img/constellations/7.jpg")
+	волосыВероники, _ := fyne.LoadResourceFromPath("resources/img/constellations/8.jpg")
+	дракон, _ := fyne.LoadResourceFromPath("resources/img/constellations/9.jpg")
+	единорог, _ := fyne.LoadResourceFromPath("resources/img/constellations/10.jpg")
+	эридан, _ := fyne.LoadResourceFromPath("resources/img/constellations/11.jpg")
+	геркулес, _ := fyne.LoadResourceFromPath("resources/img/constellations/12.jpg")
+	жертвенник, _ := fyne.LoadResourceFromPath("resources/img/constellations/13.jpg")
+	жираф, _ := fyne.LoadResourceFromPath("resources/img/constellations/14.jpg")
 	return []constellationsIconInfo{
-		{name: "Большая медведица", icon: bigbear, description: "Большая медведица - созвездие северного полушария зимнего неба."},
-		{name: "Венера", icon: venus, description: "Венера - вторая планета от Солнца."},
-		{name: "Центавр", icon: earth, description: "Центавр - созвездие южного полушария неба."},
-		{name: "Марс", icon: mars, description: "Марс - четвёртая планета от Солнца."},
+		{name: "Андромеда", icon: андромеда, description: "Андромеда"},
+		{name: "Большая медведица", icon: большаяМедведица, description: "Большая медведица"},
+		{name: "Большой пёс", icon: большойПёс, description: "Большой пёс"},
+		{name: "Близнецы", icon: близнецы, description: "Близнецы"},
+		{name: "Чаша", icon: чаша, description: "Близнецы"},
+		{name: "Часы", icon: часы, description: "Часы"},
+		{name: "Дельфин", icon: дельфин, description: "Дельфин"},
+		{name: "Волосы Вероники", icon: волосыВероники, description: "Волосы Вероники"},
+		{name: "Дракон", icon: дракон, description: "Дракон"},
+		{name: "Единорог", icon: единорог, description: "Единорог"},
+		{name: "Эридан", icon: эридан, description: "Эридан"},
+		{name: "Геркулес", icon: геркулес, description: "Геркулес"},
+		{name: "Жертвенник", icon: жертвенник, description: "Жертвенник"},
+		{name: "Жираф", icon: жираф, description: "Жираф"},
 	}
 }
 
