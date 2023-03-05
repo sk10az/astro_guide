@@ -6,6 +6,7 @@ import (
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
+	"github.com/sk10az/astro_guide/resources"
 	"image/color"
 )
 
@@ -100,14 +101,14 @@ func textList(desks []iconInfo) []string {
 }
 
 func loadIcons() []iconInfo {
-	mercury, _ := fyne.LoadResourceFromPath("resources/img/planets/mercury.png")
-	venus, _ := fyne.LoadResourceFromPath("resources/img/planets/venus.png")
-	earth, _ := fyne.LoadResourceFromPath("resources/img/planets/earth.png")
-	mars, _ := fyne.LoadResourceFromPath("resources/img/planets/mars.png")
-	jupiter, _ := fyne.LoadResourceFromPath("resources/img/planets/jupiter.png")
-	saturn, _ := fyne.LoadResourceFromPath("resources/img/planets/saturn.png")
-	uranium, _ := fyne.LoadResourceFromPath("resources/img/planets/uranium.png")
-	neptune, _ := fyne.LoadResourceFromPath("resources/img/planets/neptune.png")
+	var mercury = fyne.NewStaticResource("mercury.png", resources.MercuryPlanets)
+	var venus = fyne.NewStaticResource("mercury.png", resources.VenusPlanets)
+	var earth = fyne.NewStaticResource("mercury.png", resources.EarthPlanets)
+	var mars = fyne.NewStaticResource("mars.png", resources.MarsPlanets)
+	var jupiter = fyne.NewStaticResource("jupiter.png", resources.JupiterPlanets)
+	var saturn = fyne.NewStaticResource("saturn.png", resources.SaturnPlanets)
+	var uranium = fyne.NewStaticResource("uranium.png", resources.UraniumPlanets)
+	var neptune = fyne.NewStaticResource("neptune.png", resources.NeptunePlanets)
 	return []iconInfo{
 		{"Mercury", mercury, "Наименьшая планета Солнечной системы и самая близкая к Солнцу.\n " +
 			"Названа в честь древнеримского бога торговли - быстрого Меркурия,\n " +
