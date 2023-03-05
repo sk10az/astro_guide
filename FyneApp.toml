@@ -1,12 +1,6 @@
 [Details]
-  Icon = "../../theme/icons/fyne.png"
-  Name = "Fyne Demo"
-  ID = "io.fyne.demo"
-  Version = "2.3.0"
-  Build = 11
-
-[Development]
-  HelperText = "This binary was build with debug symbol"
-
-[Release]
-  HelperText = "This binary was build without debug symbol"
+  Icon = "data/assets/logo.png"
+  Name = "guide of astronomy"
+  ID = "online.skaz.app"
+  Version = "1.0.0"
+  Build = 18
