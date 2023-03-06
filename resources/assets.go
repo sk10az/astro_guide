@@ -40,265 +40,265 @@ var NeptunePlanets []byte
 // ЗВЁЗДЫ
 
 //go:embed img/constellations/1.jpg
-var constellations1 []byte
+var Constellations1 []byte
 
 //go:embed img/constellations/2.jpg
-var constellations2 []byte
+var Constellations2 []byte
 
 //go:embed img/constellations/3.jpg
-var constellations3 []byte
+var Constellations3 []byte
 
 //go:embed img/constellations/4.jpg
-var constellations4 []byte
+var Constellations4 []byte
 
 //go:embed img/constellations/5.jpg
-var constellations5 []byte
+var Constellations5 []byte
 
 //go:embed img/constellations/6.jpg
-var constellations6 []byte
+var Constellations6 []byte
 
 //go:embed img/constellations/7.jpg
-var constellations7 []byte
+var Constellations7 []byte
 
 //go:embed img/constellations/8.jpg
-var constellations8 []byte
+var Constellations8 []byte
 
 //go:embed img/constellations/9.jpg
-var constellations9 []byte
+var Constellations9 []byte
 
 //go:embed img/constellations/10.jpg
-var constellations10 []byte
+var Constellations10 []byte
 
 //go:embed img/constellations/11.jpg
-var constellations11 []byte
+var Constellations11 []byte
 
 //go:embed img/constellations/12.jpg
-var constellations12 []byte
+var Constellations12 []byte
 
 //go:embed img/constellations/13.jpg
-var constellations13 []byte
+var Constellations13 []byte
 
 //go:embed img/constellations/14.jpg
-var constellations14 []byte
+var Constellations14 []byte
 
 //go:embed img/constellations/15.jpg
-var constellations15 []byte
+var Constellations15 []byte
 
 //go:embed img/constellations/16.jpg
-var constellations16 []byte
+var Constellations16 []byte
 
 //go:embed img/constellations/17.jpg
-var constellations17 []byte
+var Constellations17 []byte
 
 //go:embed img/constellations/18.jpg
-var constellations18 []byte
+var Constellations18 []byte
 
 //go:embed img/constellations/19.jpg
-var constellations19 []byte
+var Constellations19 []byte
 
 //go:embed img/constellations/20.jpg
-var constellations20 []byte
+var Constellations20 []byte
 
 //go:embed img/constellations/21.jpg
-var constellations21 []byte
+var Constellations21 []byte
 
 //go:embed img/constellations/22.jpg
-var constellations22 []byte
+var Constellations22 []byte
 
 //go:embed img/constellations/23.jpg
-var constellations23 []byte
+var Constellations23 []byte
 
 //go:embed img/constellations/24.jpg
-var constellations24 []byte
+var Constellations24 []byte
 
 //go:embed img/constellations/25.jpg
-var constellations25 []byte
+var Constellations25 []byte
 
 //go:embed img/constellations/26.jpg
-var constellations26 []byte
+var Constellations26 []byte
 
 //go:embed img/constellations/27.jpg
-var constellations27 []byte
+var Constellations27 []byte
 
 //go:embed img/constellations/28.jpg
-var constellations28 []byte
+var Constellations28 []byte
 
 //go:embed img/constellations/29.jpg
-var constellations29 []byte
+var Constellations29 []byte
 
 //go:embed img/constellations/30.jpg
-var constellations30 []byte
+var Constellations30 []byte
 
 //go:embed img/constellations/31.jpg
-var constellations31 []byte
+var Constellations31 []byte
 
 //go:embed img/constellations/32.jpg
-var constellations32 []byte
+var Constellations32 []byte
 
 //go:embed img/constellations/33.jpg
-var constellations33 []byte
+var Constellations33 []byte
 
 //go:embed img/constellations/34.jpg
-var constellations34 []byte
+var Constellations34 []byte
 
 //go:embed img/constellations/35.jpg
-var constellations35 []byte
+var Constellations35 []byte
 
 //go:embed img/constellations/36.jpg
-var constellations36 []byte
+var Constellations36 []byte
 
 //go:embed img/constellations/37.jpg
-var constellations37 []byte
+var Constellations37 []byte
 
 //go:embed img/constellations/38.jpg
-var constellations38 []byte
+var Constellations38 []byte
 
 //go:embed img/constellations/39.jpg
-var constellations39 []byte
+var Constellations39 []byte
 
 //go:embed img/constellations/40.jpg
-var constellations40 []byte
+var Constellations40 []byte
 
 //go:embed img/constellations/41.jpg
-var constellations41 []byte
+var Constellations41 []byte
 
 //go:embed img/constellations/42.jpg
-var constellations42 []byte
+var Constellations42 []byte
 
 //go:embed img/constellations/43.jpg
-var constellations43 []byte
+var Constellations43 []byte
 
 //go:embed img/constellations/44.jpg
-var constellations44 []byte
+var Constellations44 []byte
 
 //go:embed img/constellations/45.jpg
-var constellations45 []byte
+var Constellations45 []byte
 
 //go:embed img/constellations/46.jpg
-var constellations46 []byte
+var Constellations46 []byte
 
 //go:embed img/constellations/47.jpg
-var constellations47 []byte
+var Constellations47 []byte
 
 //go:embed img/constellations/48.jpg
-var constellations48 []byte
+var Constellations48 []byte
 
 //go:embed img/constellations/49.jpg
-var constellations49 []byte
+var Constellations49 []byte
 
 //go:embed img/constellations/50.jpg
-var constellations50 []byte
+var Constellations50 []byte
 
 //go:embed img/constellations/51.jpg
-var constellations51 []byte
+var Constellations51 []byte
 
 //go:embed img/constellations/52.jpg
-var constellations52 []byte
+var Constellations52 []byte
 
 //go:embed img/constellations/53.jpg
-var constellations53 []byte
+var Constellations53 []byte
 
 //go:embed img/constellations/54.jpg
-var constellations54 []byte
+var Constellations54 []byte
 
 //go:embed img/constellations/55.jpg
-var constellations55 []byte
+var Constellations55 []byte
 
 //go:embed img/constellations/56.jpg
-var constellations56 []byte
+var Constellations56 []byte
 
 //go:embed img/constellations/57.jpg
-var constellations57 []byte
+var Constellations57 []byte
 
 //go:embed img/constellations/58.jpg
-var constellations58 []byte
+var Constellations58 []byte
 
 //go:embed img/constellations/59.jpg
-var constellations59 []byte
+var Constellations59 []byte
 
 //go:embed img/constellations/60.jpg
-var constellations60 []byte
+var Constellations60 []byte
 
 //go:embed img/constellations/61.jpg
-var constellations61 []byte
+var Constellations61 []byte
 
 //go:embed img/constellations/62.jpg
-var constellations62 []byte
+var Constellations62 []byte
 
 //go:embed img/constellations/63.jpg
-var constellations63 []byte
+var Constellations63 []byte
 
 //go:embed img/constellations/64.jpg
-var constellations64 []byte
+var Constellations64 []byte
 
 //go:embed img/constellations/65.jpg
-var constellations65 []byte
+var Constellations65 []byte
 
 //go:embed img/constellations/66.jpg
-var constellations66 []byte
+var Constellations66 []byte
 
 //go:embed img/constellations/67.jpg
-var constellations67 []byte
+var Constellations67 []byte
 
 //go:embed img/constellations/68.jpg
-var constellations68 []byte
+var Constellations68 []byte
 
 //go:embed img/constellations/69.jpg
-var constellations69 []byte
+var Constellations69 []byte
 
 //go:embed img/constellations/70.jpg
-var constellations70 []byte
+var Constellations70 []byte
 
 //go:embed img/constellations/71.jpg
-var constellations71 []byte
+var Constellations71 []byte
 
 //go:embed img/constellations/72.jpg
-var constellations72 []byte
+var Constellations72 []byte
 
 //go:embed img/constellations/73.jpg
-var constellations73 []byte
+var Constellations73 []byte
 
 //go:embed img/constellations/74.jpg
-var constellations74 []byte
+var Constellations74 []byte
 
 //go:embed img/constellations/75.jpg
-var constellations75 []byte
+var Constellations75 []byte
 
 //go:embed img/constellations/76.jpg
-var constellations76 []byte
+var Constellations76 []byte
 
 //go:embed img/constellations/77.jpg
-var constellations77 []byte
+var Constellations77 []byte
 
 //go:embed img/constellations/78.jpg
-var constellations78 []byte
+var Constellations78 []byte
 
 //go:embed img/constellations/79.jpg
-var constellations79 []byte
+var Constellations79 []byte
 
 //go:embed img/constellations/80.jpg
-var constellations80 []byte
+var Constellations80 []byte
 
 //go:embed img/constellations/81.jpg
-var constellations81 []byte
+var Constellations81 []byte
 
 //go:embed img/constellations/82.jpg
-var constellations82 []byte
+var Constellations82 []byte
 
 //go:embed img/constellations/83.jpg
-var constellations83 []byte
+var Constellations83 []byte
 
 //go:embed img/constellations/84.jpg
-var constellations84 []byte
+var Constellations84 []byte
 
 //go:embed img/constellations/85.jpg
-var constellations85 []byte
+var Constellations85 []byte
 
 //go:embed img/constellations/86.jpg
-var constellations86 []byte
+var Constellations86 []byte
 
 //go:embed img/constellations/87.jpg
-var constellations87 []byte
+var Constellations87 []byte
 
 //go:embed img/constellations/88.jpg
-var constellations88 []byte
+var Constellations88 []byte
