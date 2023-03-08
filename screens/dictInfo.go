@@ -21,9 +21,10 @@ type browser struct {
 	icons   []iconInfo
 	desks   []iconInfo
 
-	desk []string
-	name *widget.Select
-	icon *widget.Icon
+	desk   []string
+	name   *widget.Select
+	icon   *widget.Icon
+	search *widget.Entry // добавлено поле search
 }
 
 func (b *browser) setIcon(index int) {
@@ -45,11 +46,66 @@ func (b *browser) setLabel(index int) string {
 	return description
 }
 
-// TODO: какая же хрень
+func (b *browser) searchIcon(name string) int {
+	for i, icon := range allIcons {
+		if icon.name == name {
+			return i
+		}
+	}
+	return -1 // если иконка не найдена
+}
+
+var allIcons []iconInfo
+
+func loadIcons() []iconInfo {
+	var icons []iconInfo
+
+	icons = append(icons, iconInfo{name: "Earth", icon: fyne.NewStaticResource("earth.png", resources.EarthPlanets)})
+	icons = append(icons, iconInfo{name: "Mars", icon: fyne.NewStaticResource("mars.png", resources.MarsPlanets)})
+	//var mercury = fyne.NewStaticResource("mercury.png", resources.MercuryPlanets)
+	//var venus = fyne.NewStaticResource("mercury.png", resources.VenusPlanets)
+	//var earth = fyne.NewStaticResource("mercury.png", resources.EarthPlanets)
+	//var mars = fyne.NewStaticResource("mars.png", resources.MarsPlanets)
+	//var jupiter = fyne.NewStaticResource("jupiter.png", resources.JupiterPlanets)
+	//var saturn = fyne.NewStaticResource("saturn.png", resources.SaturnPlanets)
+	//var uranium = fyne.NewStaticResource("uranium.png", resources.UraniumPlanets)
+	//var neptune = fyne.NewStaticResource("neptune.png", resources.NeptunePlanets)
+
+	return icons
+	//return []iconInfo{
+	//	{"Mercury", mercury, "Наименьшая планета Солнечной системы и самая близкая к Солнцу.\n " +
+	//		"Названа в честь древнеримского бога торговли - быстрого Меркурия,\n " +
+	//		"поскольку она движется по небу быстрее других планет.\n " +
+	//		"Её период обращения вокруг Солнца составляет всего 87,97 земных\n " +
+	//		"суток - самый короткий среди всех планет Солнечной системы.\n"},
+	//	{"Venus", venus, "venus"},
+	//	{"Earth", earth, "earth"},
+	//	{"Mars", mars, "mars"},
+	//	{"Jupiter", jupiter, "jupiter"},
+	//	{"Saturn", saturn, "saturn"},
+	//	{"Uranium", uranium, "uranium"},
+	//	{"Neptune", neptune, "neptune"},
+	//}
+}
+
 func iconScreen(_ fyne.Window) fyne.CanvasObject {
 	b := &browser{}
 	b.icons = loadIcons()
 	b.desks = loadIcons()
+
+	for _, icon := range b.icons {
+		allIcons = append(allIcons, icon)
+	}
+
+	b.search = widget.NewEntry()
+	b.search.SetPlaceHolder("Search by name")
+	b.search.OnChanged = func(s string) {
+		if i := b.searchIcon(s); i >= 0 {
+			b.current = i
+			b.setIcon(i)
+			b.setLabel(i)
+		}
+	}
 
 	prev := widget.NewButtonWithIcon("", theme.NavigateBackIcon(), func() {
 		b.setIcon(b.current - 1)
@@ -73,14 +129,16 @@ func iconScreen(_ fyne.Window) fyne.CanvasObject {
 	})
 
 	b.name.SetSelected(b.icons[b.current].name)
+	searchBox := container.NewBorder(nil, nil, nil, nil, b.search)
+	nameBox := container.NewBorder(searchBox, nil, nil, nil, b.name)
 	buttons := container.NewHBox(prev, next)
-	bar := container.NewBorder(nil, nil, buttons, nil, b.name)
+	bar := container.NewBorder(nil, nil, buttons, nil, nameBox)
 
 	background := canvas.NewRasterWithPixels(checkerPattern)
 	background.Resize(fyne.NewSize(400, 400))
 	b.icon = widget.NewIcon(b.icons[b.current].icon)
 
-	return container.NewBorder(bar, nil, nil, nil, b.icon) // background перед b.icon // container.NewGridWithColumns(2, widget.NewLabel(b.desks[b.current].description),
+	return container.NewBorder(bar, nil, nil, nil, b.icon)
 }
 
 func iconList(icons []iconInfo) []string {
@@ -98,31 +156,6 @@ func textList(desks []iconInfo) []string {
 		retDesk[i] = desk.description
 	}
 	return retDesk
-}
-
-func loadIcons() []iconInfo {
-	var mercury = fyne.NewStaticResource("mercury.png", resources.MercuryPlanets)
-	var venus = fyne.NewStaticResource("mercury.png", resources.VenusPlanets)
-	var earth = fyne.NewStaticResource("mercury.png", resources.EarthPlanets)
-	var mars = fyne.NewStaticResource("mars.png", resources.MarsPlanets)
-	var jupiter = fyne.NewStaticResource("jupiter.png", resources.JupiterPlanets)
-	var saturn = fyne.NewStaticResource("saturn.png", resources.SaturnPlanets)
-	var uranium = fyne.NewStaticResource("uranium.png", resources.UraniumPlanets)
-	var neptune = fyne.NewStaticResource("neptune.png", resources.NeptunePlanets)
-	return []iconInfo{
-		{"Mercury", mercury, "Наименьшая планета Солнечной системы и самая близкая к Солнцу.\n " +
-			"Названа в честь древнеримского бога торговли - быстрого Меркурия,\n " +
-			"поскольку она движется по небу быстрее других планет.\n " +
-			"Её период обращения вокруг Солнца составляет всего 87,97 земных\n " +
-			"суток - самый короткий среди всех планет Солнечной системы.\n"},
-		{"Venus", venus, "venus"},
-		{"Earth", earth, "earth"},
-		{"Mars", mars, "mars"},
-		{"Jupiter", jupiter, "jupiter"},
-		{"Saturn", saturn, "saturn"},
-		{"Uranium", uranium, "uranium"},
-		{"Neptune", neptune, "neptune"},
-	}
 }
 
 func checkerPattern(x, y, _, _ int) color.Color {

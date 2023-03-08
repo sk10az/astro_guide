@@ -1,78 +1,60 @@
 package screens
 
-//
 //import (
-//	"image"
-//	"image/color"
-//
 //	"fyne.io/fyne/v2"
 //	"fyne.io/fyne/v2/canvas"
 //	"fyne.io/fyne/v2/container"
+//	"fyne.io/fyne/v2/layout"
+//	"fyne.io/fyne/v2/theme"
 //	"fyne.io/fyne/v2/widget"
 //)
 //
-//func constellationMap() map[string]image.Point {
-//	constellations := map[string]image.Point{
-//		"Andromeda":        {150, 200},
-//		"Antlia":           {900, 500},
-//		"Apus":             {1100, 200},
-//		"Aquarius":         {400, 200},
-//		"Aquila":           {800, 300},
-//		"Ara":              {1000, 400},
-//		"Aries":            {200, 400},
-//		"Auriga":           {300, 300},
-//		"Bootes":           {400, 400},
-//		"Caelum":           {1000, 500},
-//		"Camelopardalis":   {250, 150},
-//		"Cancer":           {250, 500},
-//		"Canes Venatici":   {600, 400},
-//		"Canis Major":      {750, 500},
-//		"Canis Minor":      {600, 500},
-//		"Capricornus":      {500, 300},
-//		"Carina":           {950, 200},
-//		"Cassiopeia":       {200, 200},
-//		"Centaurus":        {800, 200},
-//		"Cepheus":          {200, 100},
-//		"Cetus":            {400, 500},
-//		"Chamaeleon":       {1200, 300},
-//		"Circinus":         {1100, 400},
-//		"Columba":          {900, 400},
-//		"Coma Berenices":   {500, 400},
-//		"Corona Australis": {1000, 300},
-//		"Corona Borealis":  {350, 250},
-//		"Corvus":           {600, 450},
-//		"Crater":           {550, 450},
-//		"Crux":             {950, 300},
-//		"Cygnus":           {300, 200}, // Добавлено недостающее созвездие
-//	}
-//	return constellations
-//}
+//func interactiveMapScreen(_ fyne.Window) fyne.CanvasObject {
 //
-//func NewConstellationScreen() fyne.CanvasObject {
-//	mapSize := fyne.NewSize(1200, 700)
-//	mapImage := canvas.NewRasterWithPixels(func(x, y, w, h int) []byte {
-//		img := image.NewRGBA(image.Rect(0, 0, w, h))
-//		for name, pos := range constellationMap() {
-//			canvas.Circle{
-//				StrokeColor: color.RGBA{0, 0, 255, 255},
-//				StrokeWidth: 2,
-//				Position:    pos,
-//				Radius:      10,
-//			}.Draw(img)
-//			label := canvas.NewText(name, color.White)
-//			label.TextSize = 10
-//			label.Move(pos)
-//			label.Draw(img)
-//		}
-//		return img.Pix
-//	}, mapSize)
+//	img := canvas.NewImageFromFile("resources/img/constellations.jpg")
 //
-//	return container.NewCenter(
-//		container.NewVBox(
-//			mapImage,
-//			widget.NewButton("Back", func() {
-//				mainScreen()
-//			}),
-//		),
+//	// Создаем канвас для отображения карты
+//	canvas := fyne.NewContainerWithLayout(layout.NewMaxLayout(), img)
+//	canvas.Resize(fyne.NewSize(800, 600))
+//
+//	// Добавляем кнопки для управления масштабом и скроллингом
+//	zoomInButton := widget.NewButtonWithIcon("", theme.ZoomOutIcon(), func() {
+//		img.Scale *= 1.1
+//		canvas.Refresh()
+//	})
+//	zoomOutButton := widget.NewButtonWithIcon("", theme.ZoomOutIcon(), func() {
+//		img.Scale /= 1.1
+//		canvas.Refresh()
+//	})
+//	scrollUpButton := widget.NewButtonWithIcon("", theme.ZoomOutIcon(), func() {
+//		canvas.Offset.Y -= 10
+//		canvas.Refresh()
+//	})
+//	scrollDownButton := widget.NewButtonWithIcon("", theme.ZoomOutIcon(), func() {
+//		canvas.Offset.Y += 10
+//		canvas.Refresh()
+//	})
+//	scrollLeftButton := widget.NewButtonWithIcon("", theme.NavigateBackIcon(), func() {
+//		canvas.Offset.X -= 10
+//		canvas.Refresh()
+//	})
+//	scrollRightButton := widget.NewButtonWithIcon("", theme.NavigateNextIcon(), func() {
+//		canvas.Offset.X += 10
+//		canvas.Refresh()
+//	})
+//
+//	// Создаем контейнер для кнопок
+//	buttons := container.NewGridWithColumns(3,
+//		zoomInButton, scrollUpButton, zoomOutButton,
+//		scrollLeftButton, nil, scrollRightButton,
+//		nil, scrollDownButton, nil,
 //	)
+//
+//	// Создаем контейнер для отображения карты и кнопок
+//	content := container.New(layout.NewBorderLayout(nil, nil, nil, buttons),
+//		canvas,
+//		buttons,
+//	)
+//
+//	return content
 //}
