@@ -52,40 +52,23 @@ func (b *browser) searchIcon(name string) int {
 			return i
 		}
 	}
-	return -1 // если иконка не найдена
+	return -1
 }
 
 var allIcons []iconInfo
 
 func loadIcons() []iconInfo {
 	var icons []iconInfo
-
-	icons = append(icons, iconInfo{name: "Earth", icon: fyne.NewStaticResource("earth.png", resources.EarthPlanets)})
-	icons = append(icons, iconInfo{name: "Mars", icon: fyne.NewStaticResource("mars.png", resources.MarsPlanets)})
-	//var mercury = fyne.NewStaticResource("mercury.png", resources.MercuryPlanets)
-	//var venus = fyne.NewStaticResource("mercury.png", resources.VenusPlanets)
-	//var earth = fyne.NewStaticResource("mercury.png", resources.EarthPlanets)
-	//var mars = fyne.NewStaticResource("mars.png", resources.MarsPlanets)
-	//var jupiter = fyne.NewStaticResource("jupiter.png", resources.JupiterPlanets)
-	//var saturn = fyne.NewStaticResource("saturn.png", resources.SaturnPlanets)
-	//var uranium = fyne.NewStaticResource("uranium.png", resources.UraniumPlanets)
-	//var neptune = fyne.NewStaticResource("neptune.png", resources.NeptunePlanets)
+	icons = append(icons, iconInfo{name: "меркурий", icon: fyne.NewStaticResource("mercury.png", resources.MercuryPlanets)})
+	icons = append(icons, iconInfo{name: "венера", icon: fyne.NewStaticResource("venus.png", resources.VenusPlanets)})
+	icons = append(icons, iconInfo{name: "земля", icon: fyne.NewStaticResource("earth.png", resources.EarthPlanets)})
+	icons = append(icons, iconInfo{name: "марс", icon: fyne.NewStaticResource("mars.png", resources.MarsPlanets)})
+	icons = append(icons, iconInfo{name: "юпитер", icon: fyne.NewStaticResource("jupiter.png", resources.JupiterPlanets)})
+	icons = append(icons, iconInfo{name: "сатурн", icon: fyne.NewStaticResource("saturn.png", resources.SaturnPlanets)})
+	icons = append(icons, iconInfo{name: "уран", icon: fyne.NewStaticResource("uranium.png", resources.UraniumPlanets)})
+	icons = append(icons, iconInfo{name: "нептун", icon: fyne.NewStaticResource("neptune.png", resources.NeptunePlanets)})
 
 	return icons
-	//return []iconInfo{
-	//	{"Mercury", mercury, "Наименьшая планета Солнечной системы и самая близкая к Солнцу.\n " +
-	//		"Названа в честь древнеримского бога торговли - быстрого Меркурия,\n " +
-	//		"поскольку она движется по небу быстрее других планет.\n " +
-	//		"Её период обращения вокруг Солнца составляет всего 87,97 земных\n " +
-	//		"суток - самый короткий среди всех планет Солнечной системы.\n"},
-	//	{"Venus", venus, "venus"},
-	//	{"Earth", earth, "earth"},
-	//	{"Mars", mars, "mars"},
-	//	{"Jupiter", jupiter, "jupiter"},
-	//	{"Saturn", saturn, "saturn"},
-	//	{"Uranium", uranium, "uranium"},
-	//	{"Neptune", neptune, "neptune"},
-	//}
 }
 
 func iconScreen(_ fyne.Window) fyne.CanvasObject {
@@ -145,7 +128,6 @@ func iconList(icons []iconInfo) []string {
 	ret := make([]string, len(icons))
 	for i, icon := range icons {
 		ret[i] = icon.name
-
 	}
 	return ret
 }

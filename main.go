@@ -22,7 +22,7 @@ var topWindow fyne.Window
 
 func main() {
 
-	a := app.NewWithID("io.fyne.demo")
+	a := app.NewWithID("online.skaz.app")
 	a.SetIcon(theme.FyneLogo())
 	makeTray(a)
 	logLifecycle(a)
