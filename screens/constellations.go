@@ -84,6 +84,9 @@ func constellationsScreen(_ fyne.Window) fyne.CanvasObject {
 
 	b.name.SetSelected(b.icons[b.current].name)
 	search := widget.NewEntry()
+
+	search.Resize(fyne.NewSize(search.MinSize().Width, search.MinSize().Height))
+	search.SetPlaceHolder("Search by name")
 	searchSubmit := widget.NewButtonWithIcon("", theme.SearchIcon(), func() {
 		index := searchConstellationsByName(search.Text, b.icons)
 		if index != -1 {
@@ -92,6 +95,7 @@ func constellationsScreen(_ fyne.Window) fyne.CanvasObject {
 			b.setDescription(b.icons[index].description)
 		}
 	})
+
 	buttons := container.NewHBox(prev, next, search, searchSubmit)
 	bar := container.NewBorder(nil, nil, buttons, nil, container.NewScroll(b.name))
 
