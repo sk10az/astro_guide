@@ -26,7 +26,7 @@ var (
 			true,
 		},
 		"constellations": {"Созвездия",
-			"Изображения популярных созвездий.",
+			"Информация о созвездиях.",
 			constellationsScreen,
 			true,
 		},
