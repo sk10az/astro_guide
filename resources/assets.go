@@ -39,6 +39,9 @@ var NeptunePlanets []byte
 
 // ЗВЁЗДЫ
 
+//go:embed img/constellations/Empty.png
+var ConstellationsEmpty []byte
+
 //go:embed img/constellations/1.jpg
 var Constellations1 []byte
 
