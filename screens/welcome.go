@@ -19,14 +19,10 @@ func parseURL(urlStr string) *url.URL {
 }
 
 func welcomeScreen(_ fyne.Window) fyne.CanvasObject {
-	//logo := canvas.NewImageFromFile("resources/img/planets/earth_logo.png")
-	//logo.FillMode = canvas.ImageFillContain
-	//http.Handle("/resources/", http.StripPrefix("/resources/", http.FileServer(http.FS(resources.Content))))
 
 	var res = fyne.NewStaticResource("earth_logo.png", resources.EarthLogo)
 	logo := canvas.NewImageFromResource(res)
 	logo.FillMode = canvas.ImageFillContain
-	//img := canvas.NewImageFromResource(ResourceResourcesImgPlanetsEarthlogoPng)
 
 	if fyne.CurrentDevice().IsMobile() {
 		logo.SetMinSize(fyne.NewSize(192, 192))
@@ -35,7 +31,7 @@ func welcomeScreen(_ fyne.Window) fyne.CanvasObject {
 	}
 
 	return container.NewCenter(container.NewVBox(
-		widget.NewLabelWithStyle("Welcome to the base guide of astronomy app.", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}),
+		widget.NewLabelWithStyle("Электронный справочник звёздного неба", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}),
 		logo,
 		container.NewHBox(
 			widget.NewHyperlink("fyne.io", parseURL("https://fyne.io/")),

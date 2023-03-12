@@ -14,7 +14,8 @@ type Tutorial struct {
 var (
 	// Tutorials defines the metadata for each tutorial
 	Tutorials = map[string]Tutorial{
-		"welcome": {"Главная", "", welcomeScreen, true},
+		"greeting": {"Приветствие", "", greetingScreen, true},
+		"welcome":  {"Главная", "", welcomeScreen, true},
 		"planets": {"Планеты",
 			"Краткая информация об планетах нашей солнечной системы.",
 			iconScreen,
@@ -154,7 +155,7 @@ var (
 
 	// TutorialIndex  defines how our screens should be laid out in the index tree
 	TutorialIndex = map[string][]string{
-		"":            {"welcome", "planets", "constellations", "termins", "calc", "randomFacts", "notes"}, // "animations","widgets", , "interactiveMap"
+		"":            {"greeting", "welcome", "planets", "constellations", "termins", "calc", "randomFacts", "notes"}, // "animations","widgets", , "interactiveMap"
 		"collections": {"list", "table", "tree"},
 		"containers":  {"apptabs", "border", "box", "center", "doctabs", "grid", "scroll", "split"},
 		"widgets":     {"accordion", "button", "card", "entry", "form", "input", "progress", "text", "toolbar"},
